@@ -1,10 +1,14 @@
 import express  from "express";
-import { getAlunos } from "../controller/alunosController.js";
+import {addAluno, deleteAluno, getAlunos, updateAluno} from "../controller/alunosController.js";
 
 const router = express.Router();
 
 router.get("/", getAlunos);
 
-// TODO: adicionar demais rotas
+router.post("/", addAluno);
+
+router.put("/:id", updateAluno);
+
+router.delete("/:id", deleteAluno);
 
 export default router;
