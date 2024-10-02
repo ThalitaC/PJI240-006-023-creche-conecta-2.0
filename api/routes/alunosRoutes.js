@@ -5,4 +5,6 @@ const router = express.Router();
 
 router.get("/", getAlunos);
 
+// TODO: adicionar demais rotas
+
 export default router;
