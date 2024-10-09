@@ -30,7 +30,6 @@ export const addAluno = (req, res) => {
         req.body.data_desligamento || null,
     ];
 
-    console.log(req.body);
     db.query(sqlQuery, [values], (err, result) => {
         if (err) {
             return res.json(err);
@@ -55,7 +54,7 @@ export const updateAluno = (req, res) => {
         req.body.telefone,
         req.body.data_inicio,
         req.body.valor_mensalidade,
-        req.body.data_desligamento,
+        req.body.data_desligamento || null,
     ];
 
     db.query(sqlQuery, [...values, req.params.id], (err, result) => {
