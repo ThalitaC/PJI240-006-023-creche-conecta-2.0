@@ -150,56 +150,56 @@ const Form = ({ getAlunos, onEdit, setOnEdit }) => {
     return (
         <FormContainer ref={ref} onSubmit={handleSubmit}>
             <InputArea>
-                <Label>Nome do aluno</Label>
-                <Input name="nome_aluno" />
+                <Label htmlFor="nome_aluno">Nome do aluno</Label>
+                <Input name="nome_aluno" id="nome_aluno" />
             </InputArea>
             <InputArea>
-                <Label>Data de Nascimento</Label>
-                <Input name="data_nascimento" type="date" />
+                <Label htmlFor="data_nascimento">Data de Nascimento</Label>
+                <Input name="data_nascimento" id="data_nascimento" type="date" />
             </InputArea>
             <InputArea>
-                <Label>Horário de Entrada</Label>
-                <Input name="horario_entrada" type="time" />
+                <Label htmlFor="horario_entrada">Horário de Entrada</Label>
+                <Input name="horario_entrada" id="horario_entrada" type="time" />
             </InputArea>
             <InputArea>
-                <Label>Horário de Saída</Label>
-                <Input name="horario_saida" type="time" />
+                <Label htmlFor="horario_saida">Horário de Saída</Label>
+                <Input name="horario_saida" id="horario_saida" type="time" />
             </InputArea>
             <InputArea>
-                <Label>Nome da Mãe</Label>
-                <Input name="nome_mae" />
+                <Label htmlFor="nome_mae">Nome da Mãe</Label>
+                <Input name="nome_mae" id="nome_mae" />
             </InputArea>
             <InputArea>
-                <Label>CPF da Mãe</Label>
-                <Input name="cpf_mae" />
+                <Label htmlFor="cpf_mae">CPF da Mãe</Label>
+                <Input name="cpf_mae" id="cpf_mae" />
             </InputArea>
             <InputArea>
-                <Label>Nome do Pai</Label>
-                <Input name="nome_pai" />
+                <Label htmlFor="nome_pai">Nome do Pai</Label>
+                <Input name="nome_pai" id="nome_pai" />
             </InputArea>
             <InputArea>
-                <Label>CPF do Pai</Label>
-                <Input name="cpf_pai" />
+                <Label htmlFor="cpf_pai">CPF do Pai</Label>
+                <Input name="cpf_pai" id="cpf_pai" />
             </InputArea>
             <InputArea>
-                <Label>Endereço</Label>
-                <Input name="endereco" />
+                <Label htmlFor="endereco">Endereço</Label>
+                <Input name="endereco" id="endereco" />
             </InputArea>
             <InputArea>
-                <Label>Telefone</Label>
-                <Input name="telefone" />
+                <Label htmlFor="telefone">Telefone</Label>
+                <Input name="telefone" id="telefone" />
             </InputArea>
             <InputArea>
-                <Label>Data de Início</Label>
-                <Input name="data_inicio" type="date" />
+                <Label htmlFor="data_inicio">Data de Início</Label>
+                <Input name="data_inicio" id="data_inicio" type="date" />
             </InputArea>
             <InputArea>
-                <Label>Valor da mensalidade</Label>
-                <Input name="valor_mensalidade" type="number" />
+                <Label htmlFor="valor_mensalidade">Valor da mensalidade</Label>
+                <Input name="valor_mensalidade" id="valor_mensalidade" type="number" />
             </InputArea>
             <InputArea>
-                <Label>Data de Desligamento</Label>
-                <Input name="data_desligamento" type="date" />
+                <Label htmlFor="data_desligamento">Data de Desligamento</Label>
+                <Input name="data_desligamento" id="data_desligamento" type="date" />
             </InputArea>
 
             <Button type="submit">SALVAR</Button>
