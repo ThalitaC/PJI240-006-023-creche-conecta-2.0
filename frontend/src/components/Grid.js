@@ -48,7 +48,7 @@ const Grid = ({ alunos, setAlunos, setOnEdit }) => {
 
     const handleDelete = async (id) => {
         await axios
-            .delete("http://localhost:8000/" + id)
+            .delete(process.env.URL + "/" + id)
             .then(({ data }) => {
                 const newArray = alunos.filter((aluno) => aluno.id !== id);
 

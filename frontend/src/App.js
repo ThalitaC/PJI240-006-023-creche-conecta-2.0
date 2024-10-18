@@ -27,7 +27,7 @@ function App() {
 
   const getAlunos = async () => {
     try {
-      const res = await axios.get("http://localhost:8000");
+      const res = await axios.get(process.env.URL);
 
       setAlunos(res.data.sort((a, b) => (a.nome > b.nome ? 1 : -1)));
     } catch (error) {

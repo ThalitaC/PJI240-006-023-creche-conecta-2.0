@@ -115,12 +115,12 @@ const Form = ({ getAlunos, onEdit, setOnEdit }) => {
             };
 
             await axios
-                .put(`http://localhost:8000/${onEdit.id}`, updatedData)
+                .put(process.env.URL + `/${onEdit.id}`, updatedData)
                 .then(({ data }) => toast.success(data))
                 .catch(({ data }) => toast.error(data));
         } else {
             await axios
-                .post("http://localhost:8000", {
+                .post(process.env.URL, {
                     nome_aluno: aluno.nome_aluno.value,
                     data_nascimento: aluno.data_nascimento.value,
                     horario_entrada: aluno.horario_entrada.value,
