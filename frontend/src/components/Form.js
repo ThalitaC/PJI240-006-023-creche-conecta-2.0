@@ -115,12 +115,12 @@ const Form = ({ getAlunos, onEdit, setOnEdit }) => {
             };
 
             await axios
-                .put(process.env.URL + `/${onEdit.id}`, updatedData)
+                .put(process.env.REACT_APP_URL + `/${onEdit.id}`, updatedData)
                 .then(({ data }) => toast.success(data))
                 .catch(({ data }) => toast.error(data));
         } else {
             await axios
-                .post(process.env.URL, {
+                .post(process.env.REACT_APP_URL, {
                     nome_aluno: aluno.nome_aluno.value,
                     data_nascimento: aluno.data_nascimento.value,
                     horario_entrada: aluno.horario_entrada.value,

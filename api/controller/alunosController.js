@@ -17,7 +17,7 @@ export const getAlunos = (req, res) => {
         }));
 
         if (err) {
-            console.log(err);
+            console.log(err.code,err.message);
             return res.json(err);
         } else {
             console.log("Alunos recuperados com sucesso!");

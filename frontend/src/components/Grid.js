@@ -48,7 +48,7 @@ const Grid = ({ alunos, setAlunos, setOnEdit }) => {
 
     const handleDelete = async (id) => {
         await axios
-            .delete(process.env.URL + "/" + id)
+            .delete(process.env.REACT_APP_URL + "/" + id)
             .then(({ data }) => {
                 const newArray = alunos.filter((aluno) => aluno.id !== id);
 

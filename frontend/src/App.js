@@ -26,8 +26,9 @@ function App() {
   const [onEdit, setOnEdit] = useState(null);
 
   const getAlunos = async () => {
+    console.log('getAlunos called');
     try {
-      const res = await axios.get(process.env.URL);
+      const res = await axios.get(process.env.REACT_APP_URL);
 
       setAlunos(res.data.sort((a, b) => (a.nome > b.nome ? 1 : -1)));
     } catch (error) {
