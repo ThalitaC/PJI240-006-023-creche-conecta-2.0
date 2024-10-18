@@ -17,8 +17,10 @@ export const getAlunos = (req, res) => {
         }));
 
         if (err) {
+            console.log(err);
             return res.json(err);
         } else {
+            console.log("Alunos recuperados com sucesso!");
             res.status(200).json(parsedResult);
         }
     });
