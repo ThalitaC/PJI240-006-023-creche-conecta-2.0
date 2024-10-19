@@ -5,15 +5,15 @@ export const getAlunos = (req, res) => {
     db.query(sqlQuery, (err, result) => {
         const parsedResult = result.map(item => ({
             ...item,
-            data_nascimento: new Date(item.data_nascimento).toLocaleDateString().slice(0, 6) + new Date(item.data_nascimento).toLocaleDateString().slice(8),
-            horario_entrada: new Date(`01/01/2000 ${item.horario_entrada}`).toLocaleTimeString().slice(0, 5),
-            horario_saida: new Date(`01/01/2000 ${item.horario_saida}`).toLocaleTimeString().slice(0, 5),
+            data_nascimento: new Date(item.data_nascimento).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: '2-digit' }),
+            horario_entrada: new Date(`01/01/2000 ${item.horario_entrada}`).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', hour12: false }),
+            horario_saida: new Date(`01/01/2000 ${item.horario_saida}`).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', hour12: false }),
             cpf_mae: item.cpf_mae.slice(0, 3) + "." + item.cpf_mae.slice(3, 6) + "." + item.cpf_mae.slice(6, 9) + "-" + item.cpf_mae.slice(9, 11),
             cpf_pai: item.cpf_pai.slice(0, 3) + "." + item.cpf_pai.slice(3, 6) + "." + item.cpf_pai.slice(6, 9) + "-" + item.cpf_pai.slice(9, 11),
             telefone: "(" + item.telefone.slice(0, 2) + ") " + item.telefone.slice(2, 7) + "-" + item.telefone.slice(7, 11),
-            data_inicio: new Date(item.data_inicio).toLocaleDateString().slice(0, 6) + new Date(item.data_inicio).toLocaleDateString().slice(8),
+            data_inicio: new Date(item.data_inicio).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: '2-digit' }),
             valor_mensalidade: "R$ " + parseFloat(item.valor_mensalidade).toFixed(2).replace(".", ","),
-            data_desligamento: item.data_desligamento ? new Date(item.data_desligamento).toLocaleDateString().slice(0, 6) + new Date(item.data_desligamento).toLocaleDateString().slice(8) : null,
+            data_desligamento: item.data_desligamento ? new Date(item.data_desligamento).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: '2-digit' }) : null,
         }));
 
         if (err) {
@@ -49,7 +49,7 @@ export const addAluno = (req, res) => {
         if (err) {
             return res.json(err);
         } else {
-            return res.status(200).json(result.body);
+            return res.status(200).json("Aluno adicionado com sucesso!");
         }
     });
 };
@@ -77,7 +77,7 @@ export const updateAluno = (req, res) => {
         if (err) {
             return res.json(err);
         } else {
-            return res.status(200).json(result.body);
+            return res.status(200).json("Aluno atualizado com sucesso!");
         }
     });
 };
