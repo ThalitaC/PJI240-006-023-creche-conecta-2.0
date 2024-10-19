@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { toast } from "react-toastify";
 
 const FormContainer = styled.form`
+  max-width: 50%;
   display: flex;
   align-items: flex-end;
   gap: 10px;

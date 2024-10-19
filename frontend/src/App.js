@@ -11,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Importe os estilos do Bootstra
 
 const Container = styled.div`
   width: 100%;
-  max-width: 800px;
+  max-width: 90%;
   margin-top: 20px;
   display: flex;
   flex-direction: column;

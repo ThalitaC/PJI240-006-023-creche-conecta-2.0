@@ -5,6 +5,7 @@ import { FaTrash, FaEdit } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 const Table = styled.table`
+  white-space: nowrap;
   width: 100%;
   background-color: #fff;
   padding: 10px;
@@ -12,7 +13,7 @@ const Table = styled.table`
   border-radius: 5px;
   max-width: 100%;
   margin: 20px auto;
-  font-size: small;
+  font-size: 0.75em;
 `;
 
 export const Thead = styled.thead``;
@@ -24,7 +25,7 @@ export const Tr = styled.tr``;
 export const Th = styled.th`
   text-align: start;
   border-bottom: inset;
-  padding-bottom: 5px;
+  padding:5px;
 
   @media (max-width: 500px) {
     ${(props) => props.onlyWeb && "display: none"}
@@ -32,7 +33,7 @@ export const Th = styled.th`
 `;
 
 export const Td = styled.td`
-  padding-top: 15px;
+  padding:5px;
   text-align: ${(props) => (props.alignCenter ? "center" : "start")};
   width: ${(props) => (props.width ? props.width : "auto")};
 
