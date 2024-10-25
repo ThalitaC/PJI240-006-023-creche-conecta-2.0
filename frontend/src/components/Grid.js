@@ -62,10 +62,10 @@ const Grid = ({ alunos, setAlunos, setOnEdit }) => {
     };
 
     return (
-        <Table>
-            <Thead>
+        <Table className="table table-bordered table-striped">
+            <Thead className="thead-dark">
                 <Tr>
-                    <Th>Nome do Aluno</Th>
+                    <Th> Nome do Aluno</Th>
                     <Th>Data de Nascimento</Th>
                     <Th>Horário de Entrada</Th>
                     <Th>Horário de Saída</Th>
@@ -78,14 +78,12 @@ const Grid = ({ alunos, setAlunos, setOnEdit }) => {
                     <Th>Data de Início</Th>
                     <Th>Valor da Mensalidade</Th>
                     <Th>Data de Desligamento</Th>
-                    <Th></Th> {/* Coluna para editar */}
-                    <Th></Th> {/* Coluna para deletar */}
                 </Tr>
             </Thead>
             <Tbody>
                 {alunos.map((item, i) => (
                     <Tr key={i}>
-                        <Td width="10%">{item.nome_aluno}</Td>
+                        <Td width="10%">{item.nome_aluno}</Td> 
                         <Td width="10%">{item.data_nascimento}</Td>
                         <Td width="10%">{item.horario_entrada}</Td>
                         <Td width="10%">{item.horario_saida}</Td>
