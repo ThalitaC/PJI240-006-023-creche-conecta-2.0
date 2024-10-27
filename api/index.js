@@ -19,10 +19,6 @@ app.use((req, res, next) => {
 
 app.use("/", alunosRoutes);
 
-app.use("/hello", (req, res) => {
-    res.send("Hello World!");
-});
-
 console.log("Server initialized")
 
 export default app;
