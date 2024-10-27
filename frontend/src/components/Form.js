@@ -28,48 +28,77 @@ const Form = ({ getAlunos, onEdit, setOnEdit }) => {
             aluno.data_inicio.value = parseDate(onEdit.data_inicio);
             aluno.valor_mensalidade.value = parseFloat(onEdit.valor_mensalidade.replace(/[^\d,-]/g, ''));
 
-            aluno.data_desligamento.value = onEdit.data_desligamento ? parseDate(onEdit.data_desligamento) : null;
+            if (onEdit.data_desligamento === null) {
+                aluno.data_desligamento.value = null;
+            } else {
+                aluno.data_desligamento.value = parseDate(onEdit.data_desligamento);
+            }
         }
     }, [onEdit]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
         const aluno = ref.current;
 
-        // Validação
-        if (!aluno.nome_aluno.value || !aluno.data_nascimento.value || !aluno.horario_entrada.value ||
-            !aluno.horario_saida.value || !aluno.nome_mae.value || !aluno.cpf_mae.value ||
-            !aluno.nome_pai.value || !aluno.cpf_pai.value || !aluno.endereco.value ||
-            !aluno.telefone.value || !aluno.data_inicio.value || !aluno.valor_mensalidade.value) {
+        if (
+            !aluno.nome_aluno.value ||
+            !aluno.data_nascimento.value ||
+            !aluno.horario_entrada.value ||
+            !aluno.horario_saida.value ||
+            !aluno.nome_mae.value ||
+            !aluno.cpf_mae.value ||
+            !aluno.nome_pai.value ||
+            !aluno.cpf_pai.value ||
+            !aluno.endereco.value ||
+            !aluno.telefone.value ||
+            !aluno.data_inicio.value ||
+            !aluno.valor_mensalidade.value
+        ) {
             return toast.warn("Preencha todos os campos obrigatórios!");
         }
 
-        const updatedData = {
-            nome_aluno: aluno.nome_aluno.value,
-            data_nascimento: aluno.data_nascimento.value,
-            horario_entrada: aluno.horario_entrada.value,
-            horario_saida: aluno.horario_saida.value,
-            nome_mae: aluno.nome_mae.value,
-            cpf_mae: aluno.cpf_mae.value,
-            nome_pai: aluno.nome_pai.value,
-            cpf_pai: aluno.cpf_pai.value,
-            endereco: aluno.endereco.value,
-            telefone: aluno.telefone.value,
-            data_inicio: aluno.data_inicio.value,
-            valor_mensalidade: aluno.valor_mensalidade.value,
-            data_desligamento: aluno.data_desligamento.value === "" ? null : aluno.data_desligamento.value,
-        };
+        if (onEdit) {
 
-        try {
-            if (onEdit) {
-                await axios.put(`${process.env.REACT_APP_URL}/${onEdit.id}`, updatedData);
-                toast.success("Dados atualizados com sucesso!");
-            } else {
-                await axios.post(process.env.REACT_APP_URL, updatedData);
-                toast.success("Dados salvos com sucesso!");
-            }
-        } catch (error) {
-            toast.error("Erro ao salvar os dados!");
+            const updatedData = {
+                nome_aluno: aluno.nome_aluno.value,
+                data_nascimento: aluno.data_nascimento.value,
+                horario_entrada: aluno.horario_entrada.value,
+                horario_saida: aluno.horario_saida.value,
+                nome_mae: aluno.nome_mae.value,
+                cpf_mae: aluno.cpf_mae.value,
+                nome_pai: aluno.nome_pai.value,
+                cpf_pai: aluno.cpf_pai.value,
+                endereco: aluno.endereco.value,
+                telefone: aluno.telefone.value,
+                data_inicio: aluno.data_inicio.value,
+                valor_mensalidade: aluno.valor_mensalidade.value,
+                data_desligamento: aluno.data_desligamento.value === "" ? null : aluno.data_desligamento.value,
+            };
+
+            await axios
+                .put(process.env.REACT_APP_URL + `/${onEdit.id}`, updatedData)
+                .then(({ data }) => toast.success(data))
+                .catch(({ data }) => toast.error(data));
+        } else {
+            await axios
+                .post(process.env.REACT_APP_URL, {
+                    nome_aluno: aluno.nome_aluno.value,
+                    data_nascimento: aluno.data_nascimento.value,
+                    horario_entrada: aluno.horario_entrada.value,
+                    horario_saida: aluno.horario_saida.value,
+                    nome_mae: aluno.nome_mae.value,
+                    cpf_mae: aluno.cpf_mae.value,
+                    nome_pai: aluno.nome_pai.value,
+                    cpf_pai: aluno.cpf_pai.value,
+                    endereco: aluno.endereco.value,
+                    telefone: aluno.telefone.value,
+                    data_inicio: aluno.data_inicio.value,
+                    valor_mensalidade: aluno.valor_mensalidade.value,
+                    data_desligamento: aluno.data_desligamento.value === "" ? null : aluno.data_desligamento.value,
+                })
+                .then(({ data }) => toast.success(data))
+                .catch(({ data }) => toast.error(data));
         }
 
         // Limpar os campos

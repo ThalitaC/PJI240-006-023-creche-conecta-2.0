@@ -55,7 +55,7 @@ export const addAluno = (req, res) => {
 };
 
 export const updateAluno = (req, res) => {
-    const sqlQuery = "UPDATE alunos SET `nome_aluno` = COALESCE(?, nome_aluno), `data_nascimento` = COALESCE(?, data_nascimento), `horario_entrada` = COALESCE(?, horario_entrada), `horario_saida` = COALESCE(?, horario_saida), `nome_mae` = COALESCE(?, nome_mae), `cpf_mae` = COALESCE(?, cpf_mae), `nome_pai` = COALESCE(?, nome_pai), `cpf_pai` = COALESCE(?, cpf_pai), `endereco` = COALESCE(?, endereco), `telefone` = COALESCE(?, telefone), `data_inicio` = COALESCE(?, data_inicio), `valor_mensalidade` = COALESCE(?, valor_mensalidade), `data_desligamento` = COALESCE(?, data_desligamento) WHERE id = ?";
+    const sqlQuery = "UPDATE alunos SET `nome_aluno` = COALESCE(?, nome_aluno), `data_nascimento` = COALESCE(?, data_nascimento), `horario_entrada` = COALESCE(?, horario_entrada), `horario_saida` = COALESCE(?, horario_saida), `nome_mae` = COALESCE(?, nome_mae), `cpf_mae` = COALESCE(?, cpf_mae), `nome_pai` = COALESCE(?, nome_pai), `cpf_pai` = COALESCE(?, cpf_pai), `endereco` = COALESCE(?, endereco), `telefone` = COALESCE(?, telefone), `data_inicio` = COALESCE(?, data_inicio), `valor_mensalidade` = COALESCE(?, valor_mensalidade), `data_desligamento` = ? WHERE id = ?";
 
     const values = [
         req.body.nome_aluno,
